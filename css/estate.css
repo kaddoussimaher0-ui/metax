@@ -1,0 +1,194 @@
+/* =====================================================================
+   MetaX.Academy — Estate additions (MX-NAV-SPEC v2026.10.1)
+   Loaded AFTER /css/style.css. Adds/overrides only the v2026.10.1 layer:
+   fluid 9-item nav, 1180px breakpoint, .mm-hub, .mx-pagestamp,
+   .mx-exitpair, .mx-related, .mx-demo, .ul-word, markdown prose,
+   hub cards, search modal, and the reduced-motion block.
+   ===================================================================== */
+
+/* =====================================================================
+   NAV GEOMETRY — authoritative v2026.10.1 layer (supersedes style.css nav)
+   Mobile → desktop switch at 1180px. Fluid item scale. The utility cluster
+   NEVER disappears: below 1280px it collapses to glyph-only (still tappable).
+   ===================================================================== */
+
+/* Mobile band: 0–1179.98px — hamburger only, mega + utility hidden. */
+@media (max-width: 1179.98px) {
+  .nav-links.mega { display: none !important; }
+  .nav-utility    { display: none !important; }
+  .nav-toggle     { display: inline-flex !important; }
+}
+/* Desktop band: 1180px+ — mega + utility shown, hamburger hidden. */
+@media (min-width: 1180px) {
+  .nav-links.mega { display: flex !important; }
+  .nav-utility    { display: flex !important; }
+  .nav-toggle     { display: none !important; }
+}
+
+.nav-inner { gap: 8px; }
+.nav-links.mega { gap: clamp(1px, 0.4vw, 8px); }
+.mm-top { font-size: clamp(0.74rem, 0.5vw + 0.42rem, 0.86rem); padding: 9px clamp(5px, 0.6vw, 10px) !important; }
+
+/* Utility cluster — keep every action reachable at every desktop width.
+   Verify is NEVER display:none (that was the "hidden items" bug); below
+   1280px it and Search shrink to glyph-only via .ul-word hiding. */
+.nav-utility { flex: 0 0 auto; gap: 4px; }
+.util-link { display: inline-flex !important; align-items: center; gap: 6px; }
+.util-link.util-verify { display: inline-flex !important; }
+@media (max-width: 1279.98px) {
+  .nav-utility .util-link .ul-word,
+  .nav-search-btn .nsb-label,
+  .nav-search-btn .ul-word { display: none; }
+  .nav-search-btn kbd { display: none; }
+  .util-link { padding: 8px 10px; }               /* keep ≥40px glyph target */
+}
+
+/* Touch-target floor (§6.5) */
+.nav-toggle { min-height: 44px; min-width: 44px; }
+.btn { padding: 15px 26px; }
+
+/* ---------- Brand lockup: never more than two tidy lines ---------- */
+.brand { flex: 0 0 auto; min-width: 0; align-items: center; }
+.brand .name {
+  display: inline-flex; flex-direction: column; line-height: 1.05;
+  white-space: nowrap;                              /* "MetaX.Academy" never wraps */
+}
+.brand .name > .brand-title { white-space: nowrap; }
+.brand .ver {
+  display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  max-width: 15ch; font-size: 0.58rem; letter-spacing: 0.12em; margin-top: 1px;
+}
+@media (max-width: 400px) { .brand .ver { display: none; } }  /* tiny phones: drop the stamp */
+
+/* ---------- Group-heading hub links (§3) ---------- */
+.mm-hub { color: inherit; text-decoration: none; }
+.mm-hub:hover { color: var(--cyan); text-decoration: underline; text-underline-offset: 3px; }
+.mm-m-hub { color: var(--cyan) !important; font-weight: 600; }
+
+/* ---------- Demo provenance strip (§6.4) ---------- */
+.mx-demo {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  max-width: var(--maxw); margin: 12px auto 0; padding: 12px 18px;
+  background: var(--panel); border: 1px solid var(--line);
+  border-left: 3px solid var(--gold); border-radius: var(--radius-sm);
+  font-size: 0.85rem; color: var(--muted);
+}
+.mx-demo strong { color: var(--text); }
+.mx-demo a { color: var(--cyan); text-decoration: none; margin-left: auto; }
+.mx-demo a:hover { text-decoration: underline; }
+.mx-demo-x { background: none; border: 1px solid var(--line); color: var(--muted); border-radius: 8px; cursor: pointer; padding: 4px 9px; min-height: 32px; }
+.mx-demo-x:hover { color: var(--text); border-color: var(--line-strong); }
+
+/* ---------- Page stamp (§6.1) ---------- */
+.mx-pagestamp {
+  display: inline-flex; flex-wrap: wrap; gap: 8px 10px; align-items: center;
+  margin-top: 18px; font-family: var(--font); font-size: 0.78rem; color: var(--dim);
+  letter-spacing: 0.02em;
+}
+.mx-pagestamp a { color: var(--cyan); text-decoration: none; }
+.mx-pagestamp a:hover { text-decoration: underline; }
+
+/* ---------- Detail-page prose ---------- */
+.mx-doc-hero h1 { max-width: 20ch; }
+.mx-sec { padding-top: 8px; }
+.mx-sec h3 { font-family: var(--font); font-size: 1.15rem; margin: 22px 0 8px; color: var(--text); }
+.mx-sec h4 { font-family: var(--font); font-size: 0.95rem; margin: 16px 0 6px; color: var(--cyan); }
+.mx-sec p { color: var(--muted); margin-bottom: 14px; max-width: 74ch; }
+.mx-sec ul, .mx-sec ol { color: var(--muted); margin: 0 0 16px 1.2em; max-width: 74ch; }
+.mx-sec li { margin-bottom: 8px; }
+.mx-sec code { font-family: ui-monospace, "SFMono-Regular", Menlo, monospace; font-size: 0.85em; background: rgba(140,160,255,0.1); padding: 2px 6px; border-radius: 6px; color: var(--cyan); }
+.mx-quote {
+  margin: 0 0 18px; padding: 14px 20px; border-left: 3px solid var(--violet);
+  background: var(--panel); border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  color: var(--text); font-style: italic; max-width: 74ch;
+}
+.mx-table-wrap { overflow-x: auto; margin: 0 0 18px; border: 1px solid var(--line); border-radius: var(--radius-sm); }
+.mx-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+.mx-table th, .mx-table td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+.mx-table th { font-family: var(--font); color: var(--cyan); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.mx-table td { color: var(--muted); }
+.mx-table tr:last-child td { border-bottom: none; }
+
+/* ---------- Related lattice (§6.2) ---------- */
+.mx-related { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+.mx-rel-title { font-family: var(--font); font-size: 1.05rem; margin-bottom: 18px; }
+.mx-rel-grid { display: grid; gap: 22px; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .mx-rel-grid { grid-template-columns: repeat(2, 1fr); } }
+.mx-rel-col h4 { font-family: var(--font); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cyan); margin-bottom: 10px; }
+.mx-rel-col ul { list-style: none; margin: 0; }
+.mx-rel-col li { margin-bottom: 7px; }
+.mx-rel-col a { color: var(--muted); text-decoration: none; font-size: 0.9rem; }
+.mx-rel-col a:hover { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- Hub cards ---------- */
+.mx-hub-hero { position: relative; }
+.mx-hub-cards .mx-hub-card h3 { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.mx-hub-card .card-link { margin-top: auto; }
+
+/* ---------- Search modal ---------- */
+.search-modal { position: fixed; inset: 0; z-index: 1000; display: none; }
+.search-modal[aria-hidden="false"] { display: block; }
+.search-backdrop { position: absolute; inset: 0; background: rgba(3,4,12,0.72); backdrop-filter: blur(4px); }
+.search-box {
+  position: relative; max-width: 640px; margin: 8vh auto 0; background: var(--panel-solid);
+  border: 1px solid var(--line-strong); border-radius: var(--radius); overflow: hidden;
+  box-shadow: 0 40px 90px -30px rgba(0,0,0,0.8);
+}
+.search-top { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-bottom: 1px solid var(--line); }
+.search-top > span { color: var(--dim); font-size: 1.1rem; }
+.search-top input { flex: 1; background: none; border: none; color: var(--text); font-size: 1rem; font-family: var(--font-body); outline: none; min-height: 44px; }
+.search-top button { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 1rem; min-height: 44px; min-width: 44px; }
+.search-results { max-height: 56vh; overflow-y: auto; padding: 6px; }
+.search-hit { display: grid; grid-template-columns: 96px 1fr; gap: 4px 12px; padding: 10px 12px; border-radius: 10px; text-decoration: none; }
+.search-hit:hover { background: rgba(140,160,255,0.08); }
+.sh-cat { font-family: var(--font); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cyan); align-self: center; }
+.sh-title { color: var(--text); font-weight: 600; font-size: 0.92rem; }
+.sh-url { grid-column: 2; color: var(--dim); font-size: 0.76rem; font-family: ui-monospace, monospace; }
+.search-empty { padding: 24px; color: var(--muted); text-align: center; }
+.search-foot { padding: 12px 16px; border-top: 1px solid var(--line); font-size: 0.8rem; color: var(--dim); }
+.search-foot a { color: var(--cyan); text-decoration: none; }
+
+/* ---------- Mobile menu hub links + accordion ---------- */
+.mm-m-group .mm-m-panel { display: none; }
+.mm-m-group.open .mm-m-panel { display: block; }
+.mm-m-caret { float: right; transition: transform 0.2s; }
+.mm-m-group.open .mm-m-caret { transform: rotate(180deg); }
+
+/* ---------- Footer 4-col (§8.1) ---------- */
+.footer-grid { display: grid; gap: 30px; grid-template-columns: 1fr; }
+@media (min-width: 560px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 800px) { .footer-grid { grid-template-columns: 1.4fr repeat(4, 1fr); } }
+.foot-brand p { color: var(--muted); font-size: 0.88rem; margin-top: 10px; max-width: 34ch; }
+
+/* ---------- Inline search box (search page hero) ---------- */
+.search-inline { margin-top: 22px; max-width: 520px; }
+.search-inline input {
+  width: 100%; background: var(--panel-solid); border: 1px solid var(--line-strong);
+  color: var(--text); font-size: 1rem; font-family: var(--font-body);
+  padding: 14px 18px; border-radius: var(--radius-sm); outline: none; min-height: 48px;
+}
+.search-inline input:focus { border-color: var(--cyan); }
+
+/* ---------- Pillar / hub card count line ---------- */
+.mx-pillar-count { color: var(--dim); font-size: 0.78rem; font-family: var(--font); letter-spacing: 0.03em; margin-top: 6px; }
+.mx-pillar-card .card-link { margin-top: auto; }
+
+/* ---------- 404 ---------- */
+.mx-404-glyph { font-size: clamp(3.5rem, 12vw, 7rem); background: var(--grad-text); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+/* ---------- Search / sitemap page ---------- */
+.route-pillar { margin-bottom: 34px; }
+.route-pillar h2 { font-family: var(--font); margin-bottom: 14px; }
+.route-list { display: grid; gap: 6px 20px; grid-template-columns: 1fr; }
+@media (min-width: 680px) { .route-list { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .route-list { grid-template-columns: repeat(3, 1fr); } }
+.route-list a { color: var(--muted); text-decoration: none; font-size: 0.88rem; padding: 5px 8px; border-radius: 8px; }
+.route-list a:hover { color: var(--text); background: rgba(140,160,255,0.08); }
+.route-list a.is-hub { color: var(--text); font-weight: 600; }
+
+/* ---------- Reduced motion (§6.5 — suppress all ambient animation) ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+  .cosmos::after, .marquee-track, .hero-orbit, .img-slot::after { animation: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
