@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# AI answer-engine crawlers (operator decision: allow for citation share)
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://metax.academy/sitemap.xml

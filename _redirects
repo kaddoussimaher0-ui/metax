@@ -1,0 +1,34 @@
+# MX-NAV-SPEC v2026.10.1 §1.5 — legacy flat URLs → directory routes (301)
+# Trailing-slash canonicalisation is handled natively by Cloudflare Pages.
+
+/index.html                          /                                  301
+/toptech.html                        /toptech/                          301
+/curriculum.html                     /toptech/catalog/                  301
+/start-here.html                     /toptech/start/diagnostic/         301
+/macrolifetach.html                  /metax/                            301
+/macrolifetech.html                  /metax/                            301
+/bcia.html                           /metax/bcia/                       301
+/bcia-status.html                    /metax/bcia/status/                301
+/community.html                      /academies/                        301
+/academies.html                      /academies/how-it-works/           301
+/credentials.html                    /credentials/                      301
+/verify.html                         /credentials/verify/               301
+/library.html                        /library/                          301
+/lexicon.html                        /library/lexicon/                  301
+/news.html                           /library/news/                     301
+/news.html?cat=:c                    /library/news/:c/                  301
+/detail.html                         /toptech/catalog/series/           301
+/article.html                        /library/news/                     301
+/about.html                          /about/                            301
+/contact.html                        /about/legal/contact/              301
+/privacy.html                        /about/legal/privacy/              301
+/terms.html                          /about/legal/terms/                301
+/charter.html                        /metax/umbrella/charter/           301
+/about-mission.html                  /about/universe/what-it-is/        301
+/about-dna.html                      /about/universe/dna/               301
+/about-curator.html                  /about/universe/curator/           301
+/about-universe.html                 /about/universe/                   301
+/about-governance.html               /about/policy/governance/          301
+/about-static.html                   /about/policy/static-principle/    301
+/about-funding.html                  /about/access/pricing/             301
+/about-what-metax-is-not.html        /about/universe/what-it-is/        301

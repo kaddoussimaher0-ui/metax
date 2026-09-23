@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#05060f" />
+
+  <title>Contact MetaX.Academy</title>
+  <meta name="description" content="Contact MetaX.Academy — send corrections, questions, or collaboration proposals to the editorial team curated by Maher." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://metax.academy/contact.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="MetaX Academy" />
+  <meta property="og:title" content="Contact MetaX.Academy" />
+  <meta property="og:description" content="Reach the MetaX.Academy editorial team." />
+  <meta property="og:url" content="https://metax.academy/contact.html" />
+  <meta property="og:image" content="https://metax.academy/img/og-image.jpg" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact MetaX.Academy",
+    "url": "https://metax.academy/contact.html"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="page-fade">
+  <div class="cosmos" aria-hidden="true"></div>
+  <div class="grid-veil" aria-hidden="true"></div>
+
+  <!-- ===== NAV (rendered by js/components.js) ===== -->
+  <div id="site-header"></div>
+
+  <main>
+    <section class="wrap">
+      <div class="layout-aside">
+        <div class="detail-main">
+          <article class="article" style="max-width:720px">
+            <span class="art-cat">Contact</span>
+            <h1>Get in <span class="gradient-text">touch</span></h1>
+            <p class="art-meta">Corrections · Questions · Collaboration</p>
+
+            <div class="article-body">
+              <p>We read every message. Whether you have spotted an error, want to suggest a topic, or would like to collaborate on an academy inside the community, use the form below or email us directly.</p>
+              <p>For the fastest reply, tell us which pillar or article your message is about.</p>
+            </div>
+
+            <form class="contact-form" id="contactForm" novalidate>
+              <div class="field">
+                <label for="cf-name">Your name</label>
+                <input id="cf-name" name="name" type="text" autocomplete="name" required placeholder="Jane Operator" />
+              </div>
+              <div class="field">
+                <label for="cf-email">Email address</label>
+                <input id="cf-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com" />
+              </div>
+              <div class="field">
+                <label for="cf-topic">Topic</label>
+                <select id="cf-topic" name="topic">
+                  <option>General question</option>
+                  <option>Correction / feedback</option>
+                  <option>TopTech curriculum</option>
+                  <option>Academies Community</option>
+                  <option>MacroLifeTach / Meta-X</option>
+                  <option>Advertising / partnership</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="cf-message">Message</label>
+                <textarea id="cf-message" name="message" rows="6" required placeholder="Write your message…"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Send message →</button>
+              <p class="form-status" id="cfStatus" role="status" aria-live="polite"></p>
+            </form>
+
+            <div class="article-body" style="margin-top:30px">
+              <h2>Direct email</h2>
+              <p>Prefer email? Write to <a href="mailto:hello@metax.academy">hello@metax.academy</a> and we will respond as soon as we can.</p>
+            </div>
+          </article>
+        </div>
+
+        <aside class="aside" id="contactAside">
+          <div class="aside-block">
+            <h5>Explore</h5>
+            <a href="about.html">About MetaX.Academy</a>
+            <a href="toptech.html">TopTech Academy</a>
+            <a href="community.html">Academies Community</a>
+            <a href="macrolifetach.html">MacroLifeTach</a>
+          </div>
+          <div class="aside-block">
+            <h5>Legal</h5>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Use</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER (rendered by js/components.js) ===== -->
+  <div id="site-footer"></div>
+
+  <script>window.SITE_PAGE = { ver: "CONTACT", cta: { label: "← Home", href: "index.html" } };</script>
+  <script src="js/data.js"></script>
+  <script src="js/components.js"></script>
+<script src="js/skeleton.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>

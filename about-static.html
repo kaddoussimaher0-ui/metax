@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#05060f" />
+
+  <title>The Static Principle, as Partitioned — Two Planes, One Boundary</title>
+  <meta name="description" content="MetaX was once wholly static. Authentication, payment and per-user state changed that. Rather than quietly acquire exceptions, the doctrine was rewritten: two planes with a hard boundary — the content plane may be decorated by the identity plane but never depends on it." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://metax.academy/about-static.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="MetaX Academy" />
+  <meta property="og:title" content="The Static Principle, as Partitioned" />
+  <meta property="og:description" content="Two planes, one boundary. Everything MetaX asks anyone to rely on stays readable and archivable by a stranger with no account and no JavaScript." />
+  <meta property="og:url" content="https://metax.academy/about-static.html" />
+  <meta property="og:image" content="https://metax.academy/img/og-image.jpg" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "The Static Principle, as Partitioned",
+    "url": "https://metax.academy/about-static.html",
+    "publisher": { "@type": "Organization", "name": "MetaX Academy", "founder": { "@type": "Person", "name": "Maher" } }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- AdSense managed from a single source: js/ads.js -->
+</head>
+<body class="page-fade">
+  <div class="cosmos" aria-hidden="true"></div>
+  <div class="grid-veil" aria-hidden="true"></div>
+
+  <div id="site-header"></div>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="hero wrap" id="top">
+      <div class="hero-bg" aria-hidden="true" style="--hero-img:url(/img/hero-about-static.jpg)"></div>
+      <div class="hero-orbit" aria-hidden="true"></div>
+      <div class="hero-particles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <span class="eyebrow">⎇ About · The Static Principle</span>
+      <h1>Two planes, <span class="gradient-text">one hard boundary.</span></h1>
+      <p class="lead">MetaX once claimed, plainly: <em>"no database, no login wall, no client-side fetch."</em> Authentication, payment and per-user state entered the estate — and made that sentence false. A false claim on a doctrine page is precisely the failure mode this estate exists to prevent, so the sentence was <b>not left standing and not quietly deleted.</b></p>
+      <div class="hero-actions">
+        <a href="#planes" class="btn btn-primary">The Two Planes →</a>
+        <a href="#bends" class="btn btn-ghost">Where the Principle Bends</a>
+      </div>
+      <p class="hero-quote">A doctrine page that quietly acquires exceptions is worse than one that never existed.</p>
+    </section>
+
+    <!-- ===== THE TWO PLANES ===== -->
+    <section class="wrap reveal" id="planes">
+      <span class="eyebrow">▤ Charter §0.6 · The partition</span>
+      <h2 class="section-title">The content plane, and the <span class="gradient-text">identity &amp; commerce plane.</span></h2>
+      <p class="section-lead">The principle was not abandoned; it was <b>partitioned</b>. The estate now runs two planes, and the difference between them is not cosmetic — it is a difference in what each is allowed to do.</p>
+      <div class="feature-grid" style="margin-top:30px">
+        <article class="feature">
+          <span class="f-glyph">✦</span>
+          <h3>The Content Plane</h3>
+          <p><code>metax.academy</code>, <code>toptech.</code>, <code>bcia.</code>, <code>academies.</code>, <code>library.</code>, <code>lexicon.</code>, <code>verify.</code>, and every <code>{academy}.metax.academy</code>. Static, pre-rendered, crawlable and archivable. Holds no state. <b>Renders completely and legibly with JavaScript disabled.</b> Indexed and archived. Publishes claims.</p>
+        </article>
+        <article class="feature">
+          <span class="f-glyph">🔑</span>
+          <h3>The Identity &amp; Commerce Plane</h3>
+          <p><code>auth.</code>, <code>pay.</code>, <code>me.</code>. Stateful — sessions, entitlements, intents, artefacts. Requires JavaScript. <b>Never indexed, never archived.</b> Publishes no doctrine, no curriculum and no claim.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== THE BOUNDARY RULE ===== -->
+    <section class="wrap reveal" id="boundary">
+      <div class="thesis-band">
+        <span class="eyebrow">⊢ The boundary rule</span>
+        <blockquote>The content plane may be <b>decorated</b> by the identity plane <b>but never depends</b> on it.</blockquote>
+        <p style="margin-top:14px">Concretely: a signed-in visitor on a series page receives <b>the same HTML</b> as an anonymous visitor, plus an identity bar and up to three entitlement chips injected by a single ≤ 4 KB script. If that script fails, times out, or is blocked, the page is unchanged and unbroken.</p>
+      </div>
+    </section>
+
+    <!-- ===== AD SLOT (managed by js/ads.js) ===== -->
+    <div class="ad-slot reveal" data-ad="primary"></div>
+
+    <!-- ===== HOW IT IS PROVED ===== -->
+    <section class="wrap reveal" id="proved">
+      <span class="eyebrow">✅ ST-19 §3.4 · Proved, not promised</span>
+      <h2 class="section-title">The exception is <span class="gradient-text">mechanically tested.</span></h2>
+      <p class="section-lead">This is the only sanctioned exception to "no client-side fetch", and it is not asserted on trust.</p>
+      <div class="feature-grid cols-3" style="margin-top:30px">
+        <article class="feature"><span class="f-glyph">①</span><h3>Built twice</h3><p>The estate is built once normally, and once with the identity script stubbed to throw an error.</p></article>
+        <article class="feature"><span class="f-glyph">②</span><h3>Diffed</h3><p>The two rendered outputs are compared for any difference in the rendered content.</p></article>
+        <article class="feature"><span class="f-glyph">③</span><h3>Fails the build</h3><p>Any difference fails the build. A content page that changes when the script dies is a broken content page.</p></article>
+      </div>
+    </section>
+
+    <!-- ===== WHERE THE PRINCIPLE BENDS ===== -->
+    <section class="wrap reveal" id="bends">
+      <span class="eyebrow">⚠ Where the principle bends</span>
+      <h2 class="section-title">What was genuinely <span class="gradient-text">given up.</span></h2>
+      <p class="section-lead">Saying "partitioned" rather than "abandoned" is a description, not a defence — and the reader is entitled to judge the trade for themselves.</p>
+      <div class="feature-grid" style="margin-top:30px">
+        <article class="feature"><span class="f-glyph">◐</span><h3>No longer wholly static</h3><p>Three named hosts now hold state. That is a real change and it is written down with its date, not smoothed over.</p></article>
+        <article class="feature"><span class="f-glyph">🗄</span><h3>No longer "holds no personal data"</h3><p>Sessions, entitlements and learner artefacts are held on <code>auth.</code>, <code>pay.</code>, <code>me.</code> — classified Class 4 under MX-003 and retained under MX-018.</p></article>
+        <article class="feature"><span class="f-glyph">🧭</span><h3>What survived — the part that mattered</h3><p>Every claim, every credential record, every doctrine and curriculum page remains readable, citable and archivable by a stranger with no account, no JavaScript and no permission.</p></article>
+      </div>
+      <div class="hero-actions" style="margin-top:26px">
+        <a href="charter.html" class="btn btn-primary">Charter §0.6 →</a>
+        <a href="about-universe.html" class="btn btn-ghost">The Two Planes, in Context</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>window.SITE_PAGE = { ver: "ABOUT · STATIC", cta: { label: "← Home", href: "index.html" } };</script>
+  <script src="js/data.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/skeleton.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/pages.js"></script>
+  <script src="js/ads.js"></script>
+</body>
+</html>
